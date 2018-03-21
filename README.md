@@ -1,8 +1,8 @@
 # UNIX Socket to TCP Bridge
 
-UNIX Bridge to TCP Bridge use [socat](https://www.linux.com/news/socat-general-bidirectional-pipe-handler) to create
-tunnel between UNIX socket and TCP port.
-Library can be used with libraries, which need TCP port but you want to use UNIX socket (e.g. for Docker).
+UNIX Bridge to TCP Bridge uses [socat](https://www.linux.com/news/socat-general-bidirectional-pipe-handler) to create
+the tunnel between UNIX socket and TCP port.
+The library can be used with libraries, which need TCP port but you want to use UNIX socket (e.g. for Docker).
 
 Inspiration to create this library was erldocker_unixbridge in Erlang library for Docker: [erldocker](https://github.com/proger/erldocker).
 
@@ -18,10 +18,10 @@ end
 
 ## Usage
 
-Just start process (in production use supervisor to monitor SocketTcpBridge process) with UNIX socket path and port:
+Just start a process (in production use supervisor to monitor SocketTcpBridge process) with UNIX socket path and port:
 ```elixir
 {:ok, pid} = SocketTcpBridge.start_link("/var/run/docker.sock", 8000)
 ```
 and you can connect to docker using port 8000 and Docker library which support Docker HTTP API.
 
-**Important:** Library use `socat` which need to be installed in your system.
+**Important:** Library use `socat`, which need to be installed in your system.
